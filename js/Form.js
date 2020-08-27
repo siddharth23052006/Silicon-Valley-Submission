@@ -29,7 +29,7 @@ class Form{
 
     display(){
         
-        this.title.html('Healthcare App');
+        this.title.html('Healthcare Helper');
         this.title.position(width/2-45, 5);
         this.title2.html('Fill the following details to proceed');
         this.title2.position(width/2-120, 70);
