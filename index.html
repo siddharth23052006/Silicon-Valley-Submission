@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Healthcare App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script src="p5.play.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCJBBT0hc05IVjMZO9nmdTEghWpIAF9WCo",
+        authDomain: "healthcare-app-ee60b.firebaseapp.com",
+        databaseURL: "https://healthcare-app-ee60b.firebaseio.com",
+        projectId: "healthcare-app-ee60b",
+        storageBucket: "healthcare-app-ee60b.appspot.com",
+        messagingSenderId: "223320845080",
+        appId: "1:223320845080:web:de6f9e3b0130aff9490c6d"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="js/Form.js"></script>
+    <script src="js/User.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+      <script src="sketch.js"></script>
+  </body>
+</html>
