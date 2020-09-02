@@ -9,12 +9,23 @@ class Form{
             this.gender.option('Male');
             this.gender.option('Female');
             this.gender.option('Other');
-        this.name = createInput('Your Name');
+        this.name = createInput('Your Full Name');
         this.button = createButton('SUBMIT');
-        this.buttonPage2;
+        //search button
+        this.search;
+        //back button on the create select page
+        this.back1;
+        //button for video links
+        this.videoPage;
+        //back button on the video link page
+        this.back2;
+
         this.organs;
-        this.wellnessText;
-        this.wellnessLink;
+        this.mentalHealth;
+        this.bones;
+        this.heart;
+        this.muscle;
+        this.digestion;
     }
 
     hide(){
@@ -26,11 +37,38 @@ class Form{
         this.title2.hide();
         this.genderTitle.hide();
     }
+    backFn1=()=>{
+        this.email.show();
+        this.age.show();
+        this.gender.show();
+        this.name.show();
+        this.button.show();
+        this.title2.show();
+        this.genderTitle.show();
+
+        this.search.hide();
+        this.organs.hide();
+        this.back1.hide();
+        this.videoPage.hide();
+    }
+
+    backFn2=()=>{
+        //videos to hide
+        this.bones.hide();
+        this.mentalHealth.hide();
+
+        this.back2.hide();
+        
+        this.search.show();
+        this.back1.show();
+        this.videoPage.show();
+        this.organs.show();
+    }
 
     display(){
         
         this.title.html('Healthcare Helper');
-        this.title.position(width/2-45, 5);
+        this.title.position(width/2-70, 5);
         this.title2.html('Fill the following details to proceed');
         this.title2.position(width/2-120, 70);
 
@@ -45,15 +83,11 @@ class Form{
         this.button.position(width-120, height-60);
 
         this.button.mousePressed(()=>{
+            this.back1 = createButton('BACK');
+            this.back1.position(50,50);
 
-            this.buttonPage2 = createButton('SUBMIT');
+            this.search = createButton('SUBMIT');
             this.organs = createSelect('Select the body part');
-            this.wellnessText = createElement('h2');
-            this.wellnessText.html("Here is a video on mental wellness.");
-            this.wellnessText.position(windowWidth/2-30,windowHeight/2-20);
-
-            this.wellnessLink = createA("https://www.youtube.com/watch?v=NQcYZplTXnQ", "Mental wellness.")
-            this.wellnessLink.position(windowWidth/2-30, windowHeight/2+30);
 
             this.hide();
             
@@ -91,9 +125,47 @@ class Form{
                 this.organs.option('Treatment for Ear Related problems');
                 this.organs.option('Treatment for Skin Related problems')
             this.organs.position(width/2-40,150);
-            this.buttonPage2.position(width-120, height-60);
+            this.search.position(width-120, height-60);
+            this.videoPage = createButton('Click Here to See Videos Related to Avoiding Health Problems')
+            this.videoPage.position(width/2-40,height/2-120)
+            
+            this.back1.mousePressed(()=>{
+                this.backFn1();
+            });
+
+            this.videoPage.mousePressed(()=>{
+                this.videoPage.hide();
+                this.search.hide();
+                this.organs.hide();
+                this.back1.hide();
+                this.back2 = createButton('BACK');
+                this.back2.position(50,50);
+
+                //videos
+                this.mentalHealth = createA("https://www.youtube.com/watch?v=NQcYZplTXnQ", "Here is a video on Mental Wellness");
+                this.mentalHealth.position(width/3-20,100);
+
+                this.bones = createA("https://www.youtube.com/watch?v=R070aeGWi8Y", "Here is a video on Bone Wellness");
+                this.bones.position(width/3-20,140)
+
+                this.heart = createA("https://www.youtube.com/watch?v=5XZjdrzxPkY", "Here is a video for taking care of your Heart");
+                this.heart.position(width/3-20,180);
+
+                this.muscle = createA("https://www.youtube.com/watch?v=WTw0lHBRjAw", "Here is a video for maintaining Muscle Health");
+                this.muscle.position(width/3-20,220);
+
+                this.digestion = createA("https://www.youtube.com/watch?v=LcjxB_yO3to", "Here is a video on improving Digestive Health");
+                this.digestion.position(width/3-20,260);
+
+                this.respiration = createA("https://www.youtube.com/watch?v=SUXc_N0aAEw","Here is a video on improving Respiratory Health");
+                this.respiration.position(width/3-20,300)
+
+                this.back2.mousePressed(()=>{
+                    this.backFn2();
+                });
+            });
         
-            this.buttonPage2.mousePressed(()=>{
+            this.search.mousePressed(()=>{
                 window.open("Search.html/?q=" + this.organs.value());
             });
         });    
