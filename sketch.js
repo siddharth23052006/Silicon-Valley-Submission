@@ -17,8 +17,8 @@ function setup(){
 function draw(){
     bg1 = map(mouseX,0,windowWidth-10,0,255);
     bg2 = map(mouseY,0,windowHeight-10,0,255);
-    background(255,bg1,bg2);
+    background(bg2,255,bg1);
 
     form.display();
-    body = image(bodyImg, 160, 100);
+    body = image(bodyImg, 100, 100);
 }
