@@ -237,7 +237,7 @@ class Form{
             });
         
             this.search.mousePressed(()=>{
-                window.open("Search.html/?q=" + this.organs.value());
+                window.open("/Search.html/?q=" + this.organs.value());
             });
         });    
     }
